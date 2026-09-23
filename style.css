@@ -19,25 +19,12 @@ body {
     min-height: 100vh;
 }
 
-.container {
-    min-height: 100vh;
-}
-
-/* HEADER */
-
 .site-header {
     background-color: var(--primary-color);
     color: var(--white);
     padding: 2rem;
     text-align: center;
 }
-
-.site-header h1 {
-    margin-bottom: 0.5rem;
-}
-
-
-/* NAVIGATION */
 
 #main-nav {
     background-color: var(--primary-color);
@@ -66,9 +53,6 @@ body {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-
-/* MAIN */
-
 main {
     display: grid;
     grid-template-columns: 300px 1fr;
@@ -77,9 +61,6 @@ main {
     margin: 2rem auto;
     padding: 0 1rem;
 }
-
-
-/* SIDEBAR */
 
 aside {
     background-color: var(--white);
@@ -90,6 +71,11 @@ aside {
 
 .profile-container {
     text-align: center;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
 }
 
 .profile-photo {
@@ -99,7 +85,7 @@ aside {
     border-radius: 50%;
     overflow: hidden;
     border: 3px solid var(--primary-color);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .profile-image {
@@ -107,6 +93,10 @@ aside {
     height: 100%;
     object-fit: cover;
     object-position: center;
+}
+
+.profile-box {
+    text-align: center;
 }
 
 .profile-box h2 {
@@ -118,27 +108,11 @@ aside {
     margin-bottom: 0.5rem;
 }
 
-.contact-info {
-    margin-top: 1.5rem;
-}
-
-.contact-info h3 {
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-}
-
-
-/* CONTENT */
-
 #content {
     background-color: var(--white);
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 2rem;
-}
-
-.content-section {
-    margin-bottom: 3rem;
 }
 
 .content-section h2 {
@@ -163,101 +137,6 @@ aside {
     margin-right: 1rem;
 }
 
-
-/* SKILLS */
-
-.skills-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1rem;
-}
-
-.skill-item {
-    background-color: var(--primary-color);
-    color: var(--white);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-}
-
-
-/* HOBI */
-
-.hobbies-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.hobby-item {
-    background-color: #f0f2f5;
-    padding: 1rem;
-    border-radius: 8px;
-    text-align: center;
-    transition: transform 0.3s;
-}
-
-.hobby-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.hobby-icon {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-    color: var(--primary-color);
-}
-
-
-/* FORM */
-
-.contact-form {
-    max-width: 500px;
-}
-
-.form-group {
-    margin-bottom: 1rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: var(--primary-color);
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-}
-
-.form-group textarea {
-    height: 150px;
-    resize: vertical;
-}
-
-.submit-btn {
-    background-color: var(--primary-color);
-    color: var(--white);
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
-}
-
-.submit-btn:hover {
-    background-color: #34569a;
-}
-
-
-/* FOOTER */
-
 footer {
     background-color: var(--primary-color);
     color: var(--white);
@@ -266,11 +145,66 @@ footer {
     margin-top: 2rem;
 }
 
+/* Menu Toggle Button */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
 
-/* TABLET */
+.menu-toggle:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
 
+/* Responsive Design */
+
+/* Smartphone: max-width 767px */
+@media (max-width: 767px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    #main-nav ul {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--primary-color);
+        padding: 1rem 0;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    #main-nav.open ul {
+        display: flex;
+    }
+
+    #main-nav li {
+        width: 100%;
+        text-align: center;
+    }
+
+    main {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-image {
+        width: 150px;
+        height: 150px;
+        font-size: 2.5rem;
+    }
+}
+
+/* Tablet Portrait: 768px to 1023px */
 @media (min-width: 768px) and (max-width: 1023px) {
-
     main {
         grid-template-columns: 250px 1fr;
         gap: 1.5rem;
@@ -280,21 +214,15 @@ footer {
         padding: 1.5rem;
     }
 
-    .profile-photo {
+    .profile-image {
         width: 180px;
         height: 180px;
-    }
-
-    .hobbies-list {
-        grid-template-columns: repeat(3, 1fr);
+        font-size: 2.5rem;
     }
 }
 
-
-/* TABLET LANDSCAPE */
-
+/* Tablet Landscape: 1024px to 1439px */
 @media (min-width: 1024px) and (max-width: 1439px) {
-
     main {
         grid-template-columns: 280px 1fr;
         gap: 2rem;
@@ -304,21 +232,15 @@ footer {
         padding: 2rem;
     }
 
-    .profile-photo {
+    .profile-image {
         width: 200px;
         height: 200px;
-    }
-
-    .hobbies-list {
-        grid-template-columns: repeat(4, 1fr);
+        font-size: 3rem;
     }
 }
 
-
-/* DESKTOP */
-
+/* Desktop: 1440px and above */
 @media (min-width: 1440px) {
-
     main {
         grid-template-columns: 300px 1fr;
         gap: 2rem;
@@ -328,53 +250,9 @@ footer {
         padding: 2rem;
     }
 
-    .profile-photo {
+    .profile-image {
         width: 220px;
         height: 220px;
-    }
-
-    .hobbies-list {
-        grid-template-columns: repeat(5, 1fr);
-    }
-}
-
-
-/* SMARTPHONE */
-
-@media (max-width: 767px) {
-
-    #main-nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-    }
-
-    main {
-        grid-template-columns: 1fr;
-    }
-
-    aside {
-        text-align: center;
-    }
-
-    .profile-photo {
-        width: 150px;
-        height: 150px;
-    }
-
-    #content {
-        padding: 1.5rem;
-    }
-
-    .hobbies-list {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .site-header {
-        padding: 1.5rem 1rem;
-    }
-
-    .site-header h1 {
-        font-size: 1.4rem;
+        font-size: 3.5rem;
     }
 }
